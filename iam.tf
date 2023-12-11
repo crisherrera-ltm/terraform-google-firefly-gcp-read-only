@@ -28,7 +28,7 @@ resource "google_project_iam_member" "service_account_project_viewer" {
   role    = "roles/viewer"
   member  = "serviceAccount:${google_service_account.firefly.email}"
 }
-
+/*
 resource "google_project_iam_custom_role" "firefly_logging_custom_role" {
   count = var.enable_event_driven ? 1 : 0
   project = data.google_project.current.project_id
@@ -50,7 +50,7 @@ resource "google_project_iam_member" "service_account_project_event_driven_sink_
   role    = google_project_iam_custom_role.firefly_logging_custom_role[0].name
   member  = "serviceAccount:${google_service_account.firefly.email}"
 }
-
+*/
 resource "google_service_account_key" "credentials" {
   service_account_id = google_service_account.firefly.name
 }
