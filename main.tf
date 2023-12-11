@@ -49,6 +49,6 @@ resource "terracurl_request" "firefly_gcp_integration" {
   }
 
   response_codes = [200, 500]
-  depends_on = [google_project_iam_member.service_account_project_membership, google_project_iam_member.service_account_project_membership_storage_viewer, google_project_iam_member.service_account_project_event_driven_sink_creation]
+  depends_on = [google_project_iam_member.service_account_project_membership, google_project_iam_member.service_account_project_membership_storage_viewer, google_project_iam_member.service_account_project_logging_admin]
 }
 
