@@ -28,6 +28,12 @@ resource "google_project_iam_member" "service_account_project_viewer" {
   role    = "roles/viewer"
   member  = "serviceAccount:${google_service_account.firefly.email}"
 }
+
+resource "google_project_iam_member" "service_account_project_viewer" {
+  project = data.google_project.current.project_id
+  role    = "roles/logging.admin"
+  member  = "serviceAccount:${google_service_account.firefly.email}"
+}
 /*
 resource "google_project_iam_custom_role" "firefly_logging_custom_role" {
   count = var.enable_event_driven ? 1 : 0
