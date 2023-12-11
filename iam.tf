@@ -29,7 +29,7 @@ resource "google_project_iam_member" "service_account_project_viewer" {
   member  = "serviceAccount:${google_service_account.firefly.email}"
 }
 
-resource "google_project_iam_member" "service_account_project_viewer" {
+resource "google_project_iam_member" "service_account_project_logging_admin" {
   project = data.google_project.current.project_id
   role    = "roles/logging.admin"
   member  = "serviceAccount:${google_service_account.firefly.email}"
